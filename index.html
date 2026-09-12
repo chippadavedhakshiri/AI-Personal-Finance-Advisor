@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Personal Finance Advisor</title>
+<title>AI Finance Advisor</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -17,11 +17,11 @@
 
 body {
     background: #f4f7fb;
-    color: #172033;
+    color: #10234d;
 }
 
 header {
-    background: #101d3d;
+    background: #0d1b3e;
     color: white;
     padding: 18px 7%;
     display: flex;
@@ -29,35 +29,41 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
 }
 
-nav button {
-    background: none;
-    border: none;
+nav a {
     color: white;
-    margin-left: 15px;
+    text-decoration: none;
+    margin-left: 25px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-nav button:hover {
-    color: #55e0b0;
+nav a:hover {
+    color: #36c98f;
+}
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+section {
+    padding: 50px 0;
+    min-height: 500px;
 }
 
 .hero {
-    background: linear-gradient(135deg, #101d3d, #203d78);
-    color: white;
-    padding: 70px 8%;
+    min-height: 550px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 40px;
 }
 
 .hero h1 {
@@ -65,194 +71,239 @@ nav button:hover {
     margin-bottom: 20px;
 }
 
-.hero h1 span {
-    color: #55e0b0;
-}
-
 .hero p {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 600px;
+    font-size: 19px;
+    color: #596579;
+    max-width: 650px;
+    line-height: 1.6;
 }
 
 .btn {
+    display: inline-block;
     margin-top: 25px;
-    padding: 13px 25px;
-    border: none;
-    border-radius: 25px;
-    background: #35c997;
+    padding: 14px 25px;
+    background: #18b77e;
     color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
 }
 
-.robot {
-    font-size: 130px;
+.btn:hover {
+    background: #129967;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 35px auto;
+.section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
-.section {
-    display: none;
-}
-
-.section.active {
-    display: block;
-}
-
-h2 {
-    margin-bottom: 25px;
-}
+/* DASHBOARD */
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
 .card {
     background: white;
-    padding: 22px;
+    padding: 28px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .card h3 {
-    margin-bottom: 10px;
+    font-size: 19px;
+    margin-bottom: 15px;
 }
 
 .amount {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
-    color: #193e80;
+    color: #17478e;
 }
 
 .green {
-    color: #16a878;
+    color: #10aa73;
 }
 
 .red {
-    color: #e74c3c;
+    color: #ef4d43;
 }
 
-.feature-grid {
+.dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-}
-
-.feature {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.07);
-}
-
-.feature-icon {
-    font-size: 35px;
-    margin-bottom: 12px;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .chart-box {
     background: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: 15px;
-    margin-top: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
+
+.chart-container {
+    height: 380px;
+}
+
+/* TABLE */
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 th, td {
-    padding: 14px;
+    padding: 18px;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
 
 th {
-    background: #101d3d;
+    background: #0d1b3e;
     color: white;
 }
 
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.form-card {
-    max-width: 500px;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-}
+/* GOALS */
 
 .goal {
+    background: white;
+    padding: 25px;
     margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .progress {
-    background: #ddd;
-    height: 12px;
+    height: 15px;
+    background: #e7eaf0;
     border-radius: 10px;
+    margin-top: 15px;
     overflow: hidden;
 }
 
 .progress-bar {
-    background: #35c997;
     height: 100%;
+    background: #18b77e;
+    border-radius: 10px;
 }
 
-.alert {
-    padding: 15px;
-    background: #fff3cd;
-    border-left: 5px solid #ffc107;
-    margin-bottom: 15px;
-    border-radius: 8px;
+/* INSIGHTS */
+
+.insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.ai-box {
-    background: linear-gradient(135deg,#e5fff6,#f2f7ff);
+.insight {
+    background: white;
     padding: 25px;
     border-radius: 15px;
-    border-left: 5px solid #35c997;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
+
+.insight h3 {
+    margin-bottom: 12px;
+}
+
+/* ALERT */
+
+.alert {
+    background: #fff0ef;
+    border-left: 6px solid #ef4d43;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* CREDIT */
+
+.credit-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.credit-score {
+    font-size: 60px;
+    font-weight: bold;
+    color: #18a879;
+}
+
+/* FORECAST */
+
+.forecast {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
 
 footer {
-    margin-top: 50px;
-    padding: 30px;
-    text-align: center;
-    background: #101d3d;
+    background: #0d1b3e;
     color: white;
+    text-align: center;
+    padding: 30px;
 }
 
-@media(max-width:700px) {
-    .hero {
+/* MOBILE */
+
+@media(max-width: 900px) {
+
+    header {
         flex-direction: column;
-        text-align: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+        display: inline-block;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insights {
+        grid-template-columns: 1fr;
     }
 
     .hero h1 {
-        font-size: 35px;
+        font-size: 38px;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    nav {
-        display: none;
+    .container {
+        width: 92%;
     }
 
-    .robot {
-        font-size: 80px;
+    table {
+        font-size: 13px;
     }
 }
 </style>
@@ -261,94 +312,54 @@ footer {
 <body>
 
 <header>
-    <div class="logo">💰 AI Finance Advisor</div>
 
-    <nav>
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('dashboard')">Dashboard</button>
-        <button onclick="showSection('transactions')">Transactions</button>
-        <button onclick="showSection('goals')">Goals</button>
-        <button onclick="showSection('insights')">AI Insights</button>
-    </nav>
+<div class="logo">💰 AI Finance Advisor</div>
+
+<nav>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('dashboard')">Dashboard</a>
+<a onclick="showSection('transactions')">Transactions</a>
+<a onclick="showSection('goals')">Goals</a>
+<a onclick="showSection('insights')">AI Insights</a>
+</nav>
+
 </header>
 
-<!-- HOME -->
-<section id="home" class="section active">
 
-<div class="hero">
+<!-- HOME -->
+
+<section id="home">
+
+<div class="container hero">
 
 <div>
-<h1>Your AI Personal<br>
-<span>Finance Advisor</span></h1>
+
+<h1>AI Personal Finance Advisor</h1>
 
 <p>
-Smarter money decisions, personalized for you.
-Track spending, manage budgets, achieve savings goals
-and receive intelligent financial insights.
+An intelligent financial assistant that analyzes income,
+expenses, savings and financial goals to provide personalized
+recommendations for smarter money decisions.
 </p>
 
 <button class="btn" onclick="showSection('dashboard')">
-Get Started →
+View My Dashboard
 </button>
-</div>
-
-<div class="robot">🤖📈</div>
 
 </div>
 
-<div class="container">
-
-<h2>Smart Financial Management</h2>
-
-<div class="feature-grid">
-
-<div class="feature">
-<div class="feature-icon">💰</div>
-<h3>Smart Budgeting</h3>
-<p>Automatically analyze expenses and create better monthly budgets.</p>
 </div>
 
-<div class="feature">
-<div class="feature-icon">📈</div>
-<h3>Investment Guidance</h3>
-<p>Get investment suggestions based on your goals and risk profile.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🎯</div>
-<h3>Savings Goals</h3>
-<p>Track progress toward emergency funds and major purchases.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🛡️</div>
-<h3>Fraud Detection</h3>
-<p>Identify unusual transactions and possible financial risks.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">💯</div>
-<h3>Credit Score</h3>
-<p>Monitor credit health and receive improvement suggestions.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🔮</div>
-<h3>Expense Forecasting</h3>
-<p>Predict upcoming expenses and possible cash-flow problems.</p>
-</div>
-
-</div>
-</div>
 </section>
 
 
 <!-- DASHBOARD -->
-<section id="dashboard" class="section">
+
+<section id="dashboard">
 
 <div class="container">
 
-<h2>📊 Financial Dashboard</h2>
+<h2 class="section-title">📊 Financial Dashboard</h2>
 
 <div class="cards">
 
@@ -361,279 +372,431 @@ Get Started →
 <div class="card">
 <h3>Monthly Income</h3>
 <div class="amount green">₹75,000</div>
+<p>Salary + Other Income</p>
 </div>
 
 <div class="card">
 <h3>Monthly Spending</h3>
 <div class="amount red">₹32,500</div>
+<p>43% of income</p>
 </div>
 
 <div class="card">
 <h3>Total Savings</h3>
 <div class="amount green">₹2,40,000</div>
+<p>Strong savings progress</p>
 </div>
 
 </div>
+
+
+<div class="dashboard-grid">
 
 <div class="chart-box">
-<h3>Monthly Spending Analysis</h3>
+
+<h2>Monthly Spending Analysis</h2>
+
+<div class="chart-container">
 <canvas id="spendingChart"></canvas>
 </div>
 
 </div>
+
+
+<div class="chart-box">
+
+<h2>AI Recommendation</h2>
+
+<br>
+
+<p>
+🤖 Your spending is currently within a healthy range.
+</p>
+
+<br>
+
+<p>
+💡 You could save approximately
+<strong>₹8,000</strong> more this month by reducing
+entertainment and food expenses.
+</p>
+
+<br>
+
+<p>
+📈 Consider investing 15% of your monthly income
+for long-term financial growth.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
 <!-- TRANSACTIONS -->
-<section id="transactions" class="section">
+
+<section id="transactions">
 
 <div class="container">
 
-<h2>💳 Transactions</h2>
-
-<div class="form-card">
-
-<h3>Add Transaction</h3>
-
-<input id="description" placeholder="Description">
-
-<input id="amount" type="number" placeholder="Amount">
-
-<select id="category">
-<option>Food</option>
-<option>Transport</option>
-<option>Shopping</option>
-<option>Bills</option>
-<option>Entertainment</option>
-</select>
-
-<button class="btn" onclick="addTransaction()">
-Add Transaction
-</button>
-
-</div>
-
-<br>
+<h2 class="section-title">💳 Recent Transactions</h2>
 
 <table>
 
-<thead>
 <tr>
+<th>Date</th>
 <th>Description</th>
 <th>Category</th>
 <th>Amount</th>
 </tr>
-</thead>
-
-<tbody id="transactionList">
 
 <tr>
-<td>Amazon</td>
-<td>Shopping</td>
-<td class="red">-₹2,500</td>
-</tr>
-
-<tr>
-<td>Uber</td>
-<td>Transport</td>
-<td class="red">-₹450</td>
-</tr>
-
-<tr>
+<td>12 Sep</td>
 <td>Salary</td>
 <td>Income</td>
 <td class="green">+₹75,000</td>
 </tr>
 
-</tbody>
+<tr>
+<td>10 Sep</td>
+<td>Rent</td>
+<td>Housing</td>
+<td class="red">-₹15,000</td>
+</tr>
+
+<tr>
+<td>08 Sep</td>
+<td>Groceries</td>
+<td>Food</td>
+<td class="red">-₹5,500</td>
+</tr>
+
+<tr>
+<td>06 Sep</td>
+<td>Electricity Bill</td>
+<td>Utilities</td>
+<td class="red">-₹2,000</td>
+</tr>
+
+<tr>
+<td>04 Sep</td>
+<td>Shopping</td>
+<td>Entertainment</td>
+<td class="red">-₹4,000</td>
+</tr>
 
 </table>
 
 </div>
+
 </section>
 
 
 <!-- GOALS -->
-<section id="goals" class="section">
+
+<section id="goals">
 
 <div class="container">
 
-<h2>🎯 Savings Goals</h2>
+<h2 class="section-title">🎯 Savings Goals</h2>
 
-<div class="cards">
-
-<div class="card goal">
+<div class="goal">
 
 <h3>Emergency Fund</h3>
-<p>₹60,000 / ₹1,00,000</p>
+
+<p>₹1,50,000 saved of ₹2,00,000</p>
 
 <div class="progress">
-<div class="progress-bar" style="width:60%"></div>
+<div class="progress-bar" style="width:75%"></div>
 </div>
 
-<p>60% completed</p>
+<br>
+
+<strong>75% Complete</strong>
 
 </div>
 
-<div class="card goal">
+
+<div class="goal">
 
 <h3>New Laptop</h3>
-<p>₹53,000 / ₹80,000</p>
+
+<p>₹45,000 saved of ₹80,000</p>
 
 <div class="progress">
-<div class="progress-bar" style="width:66%"></div>
+<div class="progress-bar" style="width:56%"></div>
 </div>
 
-<p>66% completed</p>
+<br>
+
+<strong>56% Complete</strong>
 
 </div>
 
-<div class="card goal">
 
-<h3>Vacation</h3>
-<p>₹30,000 / ₹1,00,000</p>
+<div class="goal">
+
+<h3>Vacation Fund</h3>
+
+<p>₹30,000 saved of ₹60,000</p>
 
 <div class="progress">
-<div class="progress-bar" style="width:30%"></div>
+<div class="progress-bar" style="width:50%"></div>
 </div>
 
-<p>30% completed</p>
+<br>
+
+<strong>50% Complete</strong>
 
 </div>
 
 </div>
 
-</div>
 </section>
 
 
 <!-- AI INSIGHTS -->
-<section id="insights" class="section">
+
+<section id="insights">
 
 <div class="container">
 
-<h2>🤖 AI Financial Insights</h2>
+<h2 class="section-title">🤖 AI Financial Insights</h2>
 
-<div class="ai-box">
+<div class="insights">
 
-<h3>💡 Personalized Recommendation</h3>
+<div class="insight">
+
+<h3>💰 Smart Budgeting</h3>
 
 <p>
-Based on your recent spending pattern, you could save approximately
-₹5,000 this month by reducing unnecessary shopping and entertainment
-expenses.
+Your food expenses are slightly higher than your
+recommended budget. Try reducing restaurant spending
+by 10% this month.
 </p>
 
-<button class="btn" onclick="generateAdvice()">
-Get AI Advice
-</button>
+</div>
 
-<p id="advice"></p>
+
+<div class="insight">
+
+<h3>📈 Investment Guidance</h3>
+
+<p>
+Based on your savings pattern, consider allocating
+15% of your monthly income toward long-term investments.
+</p>
 
 </div>
 
-<br>
 
-<h2>📈 Investment Guidance</h2>
+<div class="insight">
+
+<h3>💵 Savings Opportunity</h3>
+
+<p>
+You can potentially increase monthly savings from
+₹42,500 to approximately ₹50,000.
+</p>
+
+</div>
+
+
+<div class="insight">
+
+<h3>🛡️ Fraud Detection</h3>
+
+<p>
+No suspicious transactions detected recently.
+Your transaction activity appears normal.
+</p>
+
+</div>
+
+
+<div class="insight">
+
+<h3>⭐ Credit Score Monitoring</h3>
+
+<p>
+Your credit score is healthy. Continue paying bills
+on time and maintain low credit utilization.
+</p>
+
+</div>
+
+
+<div class="insight">
+
+<h3>🔮 Expense Forecast</h3>
+
+<p>
+Your estimated spending for next month is
+approximately ₹34,000 based on current patterns.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INVESTMENTS -->
+
+<section id="investments">
+
+<div class="container">
+
+<h2 class="section-title">📈 Investment Guidance</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Low Risk</h3>
-<p>Suitable for users who prefer stable returns.</p>
-<button class="btn">Explore</button>
+<h3>Emergency Fund</h3>
+<div class="amount green">₹2,00,000</div>
+<p>Recommended minimum reserve</p>
 </div>
 
 <div class="card">
-<h3>Medium Risk</h3>
-<p>Balanced approach between growth and stability.</p>
-<button class="btn">Explore</button>
+<h3>Monthly Investment</h3>
+<div class="amount">₹11,250</div>
+<p>15% of monthly income</p>
 </div>
 
 <div class="card">
-<h3>High Risk</h3>
-<p>Higher growth potential with greater market risk.</p>
-<button class="btn">Explore</button>
+<h3>Risk Level</h3>
+<div class="amount">Moderate</div>
+<p>Suitable for long-term growth</p>
 </div>
 
 </div>
 
-<br>
+</div>
 
-<h2>🛡️ Fraud Detection</h2>
+</section>
+
+
+<!-- FRAUD -->
+
+<section id="fraud">
+
+<div class="container">
+
+<h2 class="section-title">🛡️ Fraud Detection</h2>
 
 <div class="alert">
-⚠️ Unusual transaction detected: ₹18,500 at an unfamiliar merchant.
-Please verify this transaction.
-</div>
 
-<h2>💯 Credit Score Monitoring</h2>
-
-<div class="card">
-
-<h3>Credit Score</h3>
-
-<div class="amount green">742 / 900</div>
-
-<p>Your credit health is Good.</p>
+<h3>✅ No Suspicious Activity</h3>
 
 <br>
 
-<p>AI Recommendation:</p>
-
-<ul>
-<li>Pay bills on time</li>
-<li>Keep credit utilization low</li>
-<li>Avoid unnecessary loans</li>
-</ul>
+<p>
+Our system analyzed recent transactions and did not
+detect unusual spending patterns.
+</p>
 
 </div>
+
+</div>
+
+</section>
+
+
+<!-- CREDIT -->
+
+<section id="credit">
+
+<div class="container">
+
+<h2 class="section-title">⭐ Credit Score Monitoring</h2>
+
+<div class="credit-box">
+
+<p>Your Current Credit Score</p>
+
+<div class="credit-score">782</div>
+
+<h3>Excellent</h3>
 
 <br>
 
-<h2>🔮 Expense Forecast</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Expected Bills</h3>
-<div class="amount">₹8,500</div>
-<p>Next 30 days</p>
-</div>
-
-<div class="card">
-<h3>Expected Spending</h3>
-<div class="amount">₹29,000</div>
-<p>Next month</p>
-</div>
-
-<div class="card">
-<h3>Expected Savings</h3>
-<div class="amount green">₹16,000</div>
-<p>Next month</p>
-</div>
+<p>
+Continue making payments on time to maintain your
+strong credit profile.
+</p>
 
 </div>
 
 </div>
+
+</section>
+
+
+<!-- FORECAST -->
+
+<section id="forecast">
+
+<div class="container">
+
+<h2 class="section-title">🔮 Expense Forecast</h2>
+
+<div class="forecast">
+
+<h3>Predicted Spending Next Month</h3>
+
+<br>
+
+<div class="amount">₹34,000</div>
+
+<br>
+
+<p>
+Based on your historical spending patterns, your
+estimated expenses for next month are around ₹34,000.
+</p>
+
+<br>
+
+<p class="green">
+AI Prediction Confidence: 87%
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 
 <footer>
-AI Personal Finance Advisor |
-Smart Planning • Better Choices • Financial Freedom
+
+<p>© 2026 AI Personal Finance Advisor</p>
+
+<p>Smart Money Decisions Powered by AI</p>
+
 </footer>
 
 
 <script>
 
+/* SECTION NAVIGATION */
+
 function showSection(sectionId) {
 
-    document.querySelectorAll(".section").forEach(section => {
-        section.classList.remove("active");
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(function(section) {
+        section.style.display = "none";
     });
 
-    document.getElementById(sectionId).classList.add("active");
+    document.getElementById(sectionId).style.display = "block";
 
     window.scrollTo({
         top: 0,
@@ -642,97 +805,63 @@ function showSection(sectionId) {
 }
 
 
-function addTransaction() {
+/* START WITH HOME */
 
-    let description =
-        document.getElementById("description").value;
+window.onload = function() {
 
-    let amount =
-        document.getElementById("amount").value;
+    showSection("home");
 
-    let category =
-        document.getElementById("category").value;
+    const ctx = document
+        .getElementById("spendingChart")
+        .getContext("2d");
 
-    if(description === "" || amount === "") {
-        alert("Please enter transaction details.");
-        return;
-    }
+    new Chart(ctx, {
 
-    let table =
-        document.getElementById("transactionList");
+        type: "doughnut",
 
-    let row = table.insertRow();
+        data: {
 
-    row.innerHTML =
-        "<td>" + description + "</td>" +
-        "<td>" + category + "</td>" +
-        "<td class='red'>-₹" + amount + "</td>";
+            labels: [
+                "Housing",
+                "Food",
+                "Transport",
+                "Entertainment",
+                "Utilities"
+            ],
 
-    document.getElementById("description").value = "";
-    document.getElementById("amount").value = "";
+            datasets: [{
 
-    alert("Transaction added successfully!");
-}
+                data: [
+                    15000,
+                    5500,
+                    3000,
+                    4000,
+                    5000
+                ]
 
+            }]
 
-function generateAdvice() {
+        },
 
-    let advice = document.getElementById("advice");
+        options: {
 
-    advice.innerHTML =
-        "<br>🤖 AI says: Your spending is highest in shopping. " +
-        "Try reducing shopping expenses by 15% and move the saved money " +
-        "towards your Emergency Fund.";
+            responsive: true,
 
-}
+            maintainAspectRatio: false,
 
+            plugins: {
 
-const ctx =
-document.getElementById("spendingChart");
+                legend: {
+                    position: "bottom"
+                }
 
-new Chart(ctx, {
-
-    type: "doughnut",
-
-    data: {
-
-        labels: [
-            "Food",
-            "Transport",
-            "Shopping",
-            "Bills",
-            "Entertainment"
-        ],
-
-        datasets: [{
-
-            data: [
-                7000,
-                3500,
-                9000,
-                8000,
-                5000
-            ]
-
-        }]
-
-    },
-
-    options: {
-
-        responsive: true,
-
-        plugins: {
-
-            legend: {
-                position: "bottom"
             }
 
         }
 
-    }
+    });
 
-});
+};
 
 </script>
 
